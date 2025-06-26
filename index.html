@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Hassan Hussain Shah - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#6366F1',
+                        dark: '#181818'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-right': 'slideRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(-45deg, #5D5CDE, #6366F1, #8B5CF6, #A855F7);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(93, 92, 222, 0.3);
+        }
+        
+        .dark .hover-lift:hover {
+            box-shadow: 0 20px 40px rgba(93, 92, 222, 0.2);
+        }
+        
+        .skill-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #5D5CDE, #6366F1);
+            border-radius: inherit;
+            transition: width 2s ease-in-out;
+            width: 0%;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .dark .project-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-dark text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary animate-pulse-slow">
+                    <i class="fas fa-code mr-2"></i>Hassan
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors duration-300">About</a>
+                    <a href="#skills" class="hover:text-primary transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-primary transition-colors duration-300">Projects</a>
+                    <a href="#education" class="hover:text-primary transition-colors duration-300">Education</a>
+                    <a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu" class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-nav" class="fixed inset-0 z-40 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50" id="mobile-overlay"></div>
+        <div class="absolute right-0 top-0 h-full w-64 glass-effect p-6 pt-20">
+            <div class="space-y-6">
+                <a href="#home" class="block text-lg hover:text-primary transition-colors duration-300">Home</a>
+                <a href="#about" class="block text-lg hover:text-primary transition-colors duration-300">About</a>
+                <a href="#skills" class="block text-lg hover:text-primary transition-colors duration-300">Skills</a>
+                <a href="#projects" class="block text-lg hover:text-primary transition-colors duration-300">Projects</a>
+                <a href="#education" class="block text-lg hover:text-primary transition-colors duration-300">Education</a>
+                <a href="#contact" class="block text-lg hover:text-primary transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 animate-float">
+            <i class="fas fa-code text-white text-4xl opacity-20"></i>
+        </div>
+        <div class="absolute bottom-32 right-16 animate-float" style="animation-delay: 1s;">
+            <i class="fas fa-laptop-code text-white text-6xl opacity-10"></i>
+        </div>
+        <div class="absolute top-40 right-20 animate-float" style="animation-delay: 2s;">
+            <i class="fas fa-database text-white text-3xl opacity-15"></i>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up"><br>
+                    Hi, I'm <span class="text-yellow-300">Syed Hassan Hussain Shah</span> 👋
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-8 animate-slide-up font-medium" style="animation-delay: 0.2s; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    A passionate <span class="text-yellow-300 font-bold">Web Developer</span> and 4th-semester CS student at UET Lahore
+                </p>
+                
+                <div class="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-2xl animate-bounce-slow" style="animation-delay: 0.4s;">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/77a6413d48e5af1bc10b15a5623e6de3cd670c30142e737f6340fbbc1d257f77?w=433&h=577" 
+                         alt="Syed Hassan Hussain Shah" class="w-full h-full object-cover">
+                </div>
+
+                <div class="text-lg md:text-xl text-white mb-8 animate-slide-up" style="animation-delay: 0.6s;">
+                    <span class="inline-block">I work with: </span>
+                    <span id="typed-skills" class="text-yellow-300 font-semibold"></span>
+                </div>
+                
+                <p class="text-lg text-gray-200 mb-8 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.8s;">
+                    From Gujranwala, Pakistan 🇵🇰 - Let's build something great together! 🚀
+                </p>
+                
+                <div class="space-x-4 animate-slide-up" style="animation-delay: 1s;">
+                    <a href="#about" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 inline-block">
+                        Learn More
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300 hover:scale-105 inline-block">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">About <span class="text-primary">Me</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg hover-lift animate-slide-up">
+                    <div class="prose prose-lg dark:prose-invert max-w-none">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            As a current <strong class="text-primary">4th-semester Computer Science student</strong> at UET Lahore, I am passionate about developing innovative projects and visually appealing websites.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            While I am at the beginning of my professional journey, my commitment to <strong class="text-primary">continuous learning, strong work ethic, and dedication to teamwork</strong> will make a positive impact in your organization.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            I'm passionate about creating new projects and websites that are visually appealing. I have experience with <strong class="text-primary">HTML, CSS, JavaScript, Python, C++, C#</strong>, and various frameworks including <strong class="text-primary">Flask and Tailwind CSS</strong>.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            I am eager to contribute my skills and enthusiasm to your team and grow together. <strong class="text-primary">Hard working and sincere</strong> to my work, I aim to leave a positive impact on every team and company I work with.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="bg-primary text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Programming Languages</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">C++</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Python</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">JavaScript</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">C#</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-secondary text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Web Development</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">HTML/CSS</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Tailwind CSS</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">JavaScript</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Flask</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-purple-500 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Tools & Technologies</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Database</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Microsoft Office</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Blockchain</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">Info Security</span>
+                            <span class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Skills -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-center mb-8 text-primary">Specializations</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium">Desktop Applications</span>
+                    <span class="bg-secondary text-white px-6 py-3 rounded-full text-sm font-medium">Mobile Development</span>
+                    <span class="bg-purple-500 text-white px-6 py-3 rounded-full text-sm font-medium">Web Development</span>
+                    <span class="bg-indigo-500 text-white px-6 py-3 rounded-full text-sm font-medium">Blockchain DApps</span>
+                    <span class="bg-pink-500 text-white px-6 py-3 rounded-full text-sm font-medium">AI Projects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured <span class="text-primary">Projects</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Hotel Management System -->
+                <div class="project-card p-8 rounded-2xl hover-lift animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-hotel text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">🏨 Hotel Management System</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        A comprehensive hotel desktop application built using C# and database integration. Features room booking, customer management, and billing system.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs">C#</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-xs">Database</span>
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs">Desktop App</span>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Full-featured hotel management solution with modern UI.
+                    </p>
+                </div>
+
+                <!-- Chain-Wallet DApp -->
+                <div class="project-card p-8 rounded-2xl hover-lift animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-gradient-to-br from-green-500 to-teal-600 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-wallet text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">🔗 Chain-Wallet DApp</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        A decentralized money (ETH) application built using Solidity smart contracts with HTML, CSS, and JavaScript frontend for secure cryptocurrency transactions.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs">Solidity</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-xs">Blockchain</span>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Secure decentralized wallet for Ethereum transactions.
+                    </p>
+                </div>
+
+                <!-- Drive Sense AI -->
+                <div class="project-card p-8 rounded-2xl hover-lift animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-gradient-to-br from-pink-500 to-red-600 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-car text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">🚗 Drive Sense AI</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        An AI-powered driver safety system using YOLO and COCO datasets with Python, HTML, and Flask for real-time driver monitoring and alertness detection.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs">Python</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs">YOLO</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-xs">Flask</span>
+                        <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-xs">AI/ML</span>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Smart AI system for enhanced road safety through driver monitoring.
+                    </p>
+                </div>
+
+                <!-- Spotify Clone -->
+                <div class="project-card p-8 rounded-2xl hover-lift animate-slide-up" style="animation-delay: 0.6s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-gradient-to-br from-green-400 to-green-600 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-music text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">🎵 Spotify Clone</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        A music streaming web application replica built using HTML, CSS, and JavaScript with modern UI design and audio playback functionality.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-xs">HTML</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs">CSS</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Music streaming interface with modern design and functionality.
+                    </p>
+                </div>
+
+                <!-- Train Reservation System -->
+                <div class="project-card p-8 rounded-2xl hover-lift animate-slide-up" style="animation-delay: 0.8s;">
+                    <div class="text-center mb-6">
+                        <div class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                            <i class="fas fa-train text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">🚄 Train Reservation System</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        A complete train booking website using HTML, CSS, JavaScript, and IndexedDB for local data storage and ticket management system.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-xs">HTML</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs">CSS</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-xs">IndexedDB</span>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Full-featured booking system with local database storage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white dark:bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">My <span class="text-primary">Education</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- UET Lahore -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg hover-lift animate-slide-up">
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white p-4 rounded-full mr-6 flex-shrink-0">
+                            <i class="fas fa-university text-2xl"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">University of Engineering and Technology (UET), Lahore</h3>
+                            <h4 class="text-xl text-primary font-semibold mb-3">Bachelor of Science in Computer Science</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-alt text-primary mr-3"></i>
+                                    <span>4th Semester (Current)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-graduation-cap text-primary mr-3"></i>
+                                    <span>Expected Graduation: 2027</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                                    <span>Lahore, Pakistan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-award text-primary mr-3"></i>
+                                    <span>Computer Science Major</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Punjab Colleges -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg hover-lift animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-start">
+                        <div class="bg-secondary text-white p-4 rounded-full mr-6 flex-shrink-0">
+                            <i class="fas fa-school text-2xl"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Punjab Colleges, Gujranwala</h3>
+                            <h4 class="text-xl text-secondary font-semibold mb-3">Pre-Engineering (Pre-EGG)</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-alt text-secondary mr-3"></i>
+                                    <span>Year: 2021-2022</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-secondary mr-3"></i>
+                                    <span>Grade: A+</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-secondary mr-3"></i>
+                                    <span>Gujranwala, Pakistan</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-graduation-cap text-secondary mr-3"></i>
+                                    <span>Completed: 2022</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Course -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg hover-lift animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-start">
+                        <div class="bg-green-500 text-white p-4 rounded-full mr-6 flex-shrink-0">
+                            <i class="fas fa-laptop-code text-2xl"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Web Development Course</h3>
+                            <h4 class="text-xl text-green-500 font-semibold mb-3">CodeWithHarry</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar-alt text-green-500 mr-3"></i>
+                                    <span>June 2024 - August 2024</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-certificate text-green-500 mr-3"></i>
+                                    <span>Web Development Certification</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-globe text-green-500 mr-3"></i>
+                                    <span>Online Course</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-code text-green-500 mr-3"></i>
+                                    <span>Full Stack Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Download My <span class="text-primary">Resume</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Get a detailed overview of my technical skills, projects, education, and experience.
+                </p>
+                <button onclick="downloadResume()" class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105 inline-flex items-center">
+                    <i class="fas fa-download mr-3"></i>Download Resume (PDF)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 animate-float">
+            <i class="fas fa-envelope text-white text-4xl opacity-20"></i>
+        </div>
+        <div class="absolute bottom-20 right-16 animate-float" style="animation-delay: 1s;">
+            <i class="fas fa-phone text-white text-3xl opacity-15"></i>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Get In <span class="text-yellow-300">Touch</span></h2>
+                <div class="w-24 h-1 bg-yellow-300 mx-auto mb-8"></div>
+                <p class="text-gray-200 max-w-2xl mx-auto text-lg">
+                    Let's connect and discuss opportunities or collaborations!
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animate-slide-right">
+                        <div class="space-y-8">
+                            <div class="flex items-center group">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-full mr-6 group-hover:bg-opacity-30 transition-all duration-300">
+                                    <i class="fas fa-envelope text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-1">Email</h3>
+                                    <a href="mailto:ssyedhassan667@gmail.com" class="text-gray-200 hover:text-yellow-300 transition-colors duration-300">
+                                        ssyedhassan667@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center group">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-full mr-6 group-hover:bg-opacity-30 transition-all duration-300">
+                                    <i class="fas fa-phone text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-1">Phone</h3>
+                                    <a href="tel:+923208500172" class="text-gray-200 hover:text-yellow-300 transition-colors duration-300">
+                                        +92 320 8500172
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center group">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-full mr-6 group-hover:bg-opacity-30 transition-all duration-300">
+                                    <i class="fab fa-linkedin text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-1">LinkedIn</h3>
+                                    <a href="https://www.linkedin.com/in/syed-hassan-shah-a3351b2b5/" target="_blank" class="text-gray-200 hover:text-yellow-300 transition-colors duration-300">
+                                        linkedin.com/in/syed-hassan-shah
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center group">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-full mr-6 group-hover:bg-opacity-30 transition-all duration-300">
+                                    <i class="fab fa-github text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-1">GitHub</h3>
+                                    <a href="https://github.com/SyedHasanHussainShah/" target="_blank" class="text-gray-200 hover:text-yellow-300 transition-colors duration-300">
+                                        github.com/SyedHasanHussainShah
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center group">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-full mr-6 group-hover:bg-opacity-30 transition-all duration-300">
+                                    <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-1">Location</h3>
+                                    <span class="text-gray-200">
+                                        Gujranwala, Pakistan 🇵🇰
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="glass-effect p-8 rounded-2xl">
+                            <h3 class="text-2xl font-bold text-white mb-6">
+                                <i class="fas fa-paper-plane mr-3"></i>Send a Message
+                            </h3>
+                            <form class="space-y-6" id="contactForm">
+                                <div>
+                                    <input type="text" placeholder="Your Name" required 
+                                           class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300 transition-colors duration-300 text-base">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email" required 
+                                           class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300 transition-colors duration-300 text-base">
+                                </div>
+                                <div>
+                                    <textarea placeholder="Your Message" rows="4" required 
+                                              class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300 transition-colors duration-300 resize-none text-base"></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="w-full bg-yellow-300 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-200 transition-all duration-300 transform hover:scale-105">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:ssyedhassan667@gmail.com" class="text-2xl hover:text-primary transition-colors duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+923208500172" class="text-2xl hover:text-primary transition-colors duration-300">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://github.com/SyedHasanHussainShah/" target="_blank" class="text-2xl hover:text-primary transition-colors duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/syed-hassan-shah-a3351b2b5/" target="_blank" class="text-2xl hover:text-primary transition-colors duration-300">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">
+                © 2024 Syed Hassan Hussain Shah. Made with <i class="fas fa-heart text-red-500"></i> using HTML, CSS, and JavaScript.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Initialize Typed.js for dynamic skills
+        document.addEventListener('DOMContentLoaded', function() {
+            const typed = new Typed('#typed-skills', {
+                strings: [
+                    'HTML & CSS', 'JavaScript', 'Python', 'C++', 'C#', 
+                    'Tailwind CSS', 'Flask', 'Blockchain', 'Desktop Apps', 
+                    'Mobile Development', 'Database Management'
+                ],
+                typeSpeed: 100,
+                backSpeed: 60,
+                backDelay: 1000,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|'
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+        });
+
+        mobileOverlay.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+        });
+
+        // Close mobile menu when clicking nav links
+        document.querySelectorAll('#mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-slide-up, .animate-slide-right, .animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Create mailto link
+            const subject = `Portfolio Contact from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const mailtoLink = `mailto:ssyedhassan667@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            const button = this.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+            button.style.backgroundColor = '#10B981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = '';
+            }, 3000);
+        });
+
+        // Resume download function
+        function downloadResume() {
+            // Create resume content based on the actual CV
+            const resumeContent = `SYED HASSAN HUSSAIN SHAH
+STUDENT
+
+Contact Information:
+Address: Mohalla Sagheer Park Nowsherhra Road, Gujranwala, 52250, Pakistan
+Phone: +92 320 8500172
+Email: ssyedhassan667@gmail.com
+GitHub: https://github.com/SyedHasanHussainShah/
+LinkedIn: https://www.linkedin.com/in/syed-hassan-shah-a3351b2b5/
+
+ABOUT ME
+As a current CS student of 4th semester at UET Lahore, I am passionate about developing innovative projects and visually appealing websites. While I am at the beginning of my professional journey, my commitment to continuous learning, strong work ethic, and dedication to teamwork will make a positive impact in your organization. I am eager to contribute my skills and enthusiasm to your team and grow together.
+
+Hello! I'm currently completing my cs degree from UET Lahore. I'm passionate about creating new projects and websites that are visually appealing. While I don't have professional experience yet, I'm dedicated to learning and improving my skills. I am hard working and sincere to my work and also leave a good impact on your team and company.
+
+EDUCATION
+PUNJAB COLLEGES, Gujranwala (2022)
+- PRE-EGG
+- Year: 2021-2022
+- Grade: A+
+
+UET LAHORE (Expected 2027)
+- B.SC. COMPUTER SCIENCE
+- Currently in 4th semester
+
+COURSE
+WEB DEVELOPMENT - CODEWITHHARRY
+June 2024 - August 2024
+
+TECHNICAL SKILLS
+Programming Languages: HTML, CSS, JavaScript, Tailwind, C#, C++, Python, Flask
+Desktop & Mobile: Desktop Application Development, Mobile App Development
+Database: Database Management Systems
+Other Technologies: Microsoft Office, Blockchain, Information Security
+
+PROJECTS
+1. HOTEL MANAGEMENT SYSTEM
+   - Hotel Desktop App using C# and database
+
+2. SPOTIFY
+   - Spotify clone using HTML, CSS and JavaScript
+
+3. DRIVE SENSE AI
+   - AI project using dataset YOLO and COCO with Python, HTML, Flask etc.
+
+4. TRAIN RESERVATION SYSTEM
+   - Website using HTML, CSS, JavaScript and IndexedDB
+
+5. CHAIN-WALLET DAPP
+   - Money (ETH) Application using Solidity, HTML, CSS etc.
+
+LANGUAGES
+- Urdu (Native)
+- English (Fluent)
+
+PERSONAL DETAILS
+Date of Birth: 17-02-2004
+Nationality: Pakistani
+Marital Status: Single
+
+HOBBIES
+Programming, Movies, Playing Games, Reading
+`;
+            
+            // Create and download the resume
+            const blob = new Blob([resumeContent], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Syed_Hassan_Hussain_Shah_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            
+            // Show download confirmation
+            const downloadBtn = document.querySelector('button[onclick="downloadResume()"]');
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<i class="fas fa-check mr-3"></i>Downloaded Successfully!';
+            downloadBtn.style.backgroundColor = '#10B981';
+            
+            setTimeout(() => {
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.style.backgroundColor = '';
+            }, 3000);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
